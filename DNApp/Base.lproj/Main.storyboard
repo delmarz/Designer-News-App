@@ -488,7 +488,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryCell" rowHeight="100" id="TWk-9i-jMI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryCell" rowHeight="100" id="TWk-9i-jMI" customClass="StoryTableViewCell" customModule="DNApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TWk-9i-jMI" id="VBF-os-Rx2">
@@ -539,6 +539,9 @@
                                             <state key="normal" title="999" image="icon-upvote">
                                                 <color key="titleColor" red="0.58431372549019611" green="0.65098039215686276" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="upVoteButtonPressed:" destination="TWk-9i-jMI" eventType="touchUpInside" id="rex-lA-abr"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZJ-Q4-muM" customClass="SpringButton" customModule="DNApp" customModuleProvider="target">
                                             <rect key="frame" x="95" y="54" width="70" height="33"/>
@@ -552,6 +555,9 @@
                                             <state key="normal" title="999" image="icon-comment">
                                                 <color key="titleColor" red="0.58431372550000005" green="0.65098039220000004" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="commentButtonPressed:" destination="TWk-9i-jMI" eventType="touchUpInside" id="Y48-mZ-ctF"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -574,6 +580,15 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="authorLabel" destination="cjI-Nf-z8i" id="wYM-y1-uy0"/>
+                                    <outlet property="avatarImageView" destination="keQ-Yb-L4N" id="2Wb-tn-vdk"/>
+                                    <outlet property="badgeImageView" destination="3qz-md-4ig" id="gaI-nK-Lgy"/>
+                                    <outlet property="commentbutton" destination="OZJ-Q4-muM" id="Zgm-UK-K05"/>
+                                    <outlet property="timeLabel" destination="JRp-HV-Ank" id="UPw-g5-Slb"/>
+                                    <outlet property="titleLabel" destination="zKb-E3-bOr" id="brr-ci-Qlk"/>
+                                    <outlet property="upVoteButton" destination="vlz-la-f21" id="mV6-uM-lTe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -669,10 +684,10 @@
         <image name="icon-twitter" width="18" height="14"/>
         <image name="icon-upvote" width="18" height="16"/>
         <image name="icon-xcode" width="64" height="59"/>
-        <image name="input-outline" width="7" height="44"/>
+        <image name="input-outline" width="250" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IkD-BG-v6V"/>
-        <segue reference="mGR-Pc-sS5"/>
+        <segue reference="Fnl-oD-fNa"/>
     </inferredMetricsTieBreakers>
 </document>

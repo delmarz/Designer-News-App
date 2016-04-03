@@ -27,7 +27,15 @@ class StoriesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as UITableViewCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as! StoryTableViewCell
+        
+        cell.titleLabel.text = "Learn iOS Design and Xcode"
+        cell.badgeImageView.image = UIImage(named: "badge-apple")
+        cell.avatarImageView.image = UIImage(named: "content-avatar-default")
+        cell.authorLabel.text = "Israel Mayor, iOS Developer and Unity"
+        cell.timeLabel.text = "5m"
+        cell.upVoteButton.setTitle("32", forState: UIControlState.Normal)
+        cell.commentbutton.setTitle("13", forState: UIControlState.Normal)
         return cell
     }
     
