@@ -26,4 +26,8 @@ class LoginViewController: UIViewController {
     dialogView.animate()
   }
 
+    @IBAction func closeButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
 }
