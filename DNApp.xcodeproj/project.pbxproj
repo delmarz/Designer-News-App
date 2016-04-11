@@ -11,6 +11,7 @@
 		12199BF81CB0FF65006E0B0E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12199BF71CB0FF65006E0B0E /* WebViewController.swift */; };
 		12199BFA1CB11809006E0B0E /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12199BF91CB11809006E0B0E /* StoryTableViewCell.swift */; };
 		128716971CB035B300C90D19 /* StoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128716961CB035B300C90D19 /* StoriesTableViewController.swift */; };
+		726BB0541CBB48920053CD40 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BB0531CBB48920053CD40 /* Data.swift */; };
 		7286B90F1CABAB5E001B9037 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286B90E1CABAB5E001B9037 /* AppDelegate.swift */; };
 		7286B9141CABAB5E001B9037 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7286B9121CABAB5E001B9037 /* Main.storyboard */; };
 		7286B9161CABAB5E001B9037 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7286B9151CABAB5E001B9037 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		12199BF71CB0FF65006E0B0E /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		12199BF91CB11809006E0B0E /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		128716961CB035B300C90D19 /* StoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
+		726BB0531CBB48920053CD40 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		7286B90B1CABAB57001B9037 /* DNApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7286B90E1CABAB5E001B9037 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7286B9131CABAB5E001B9037 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				72E536EC1CAE3E6B00801A9F /* LearnViewController.swift */,
 				12199BF51CB0EB2E006E0B0E /* MenuViewController.swift */,
 				12199BF71CB0FF65006E0B0E /* WebViewController.swift */,
+				726BB0531CBB48920053CD40 /* Data.swift */,
 				7286B9121CABAB5E001B9037 /* Main.storyboard */,
 				7286B9151CABAB5E001B9037 /* Assets.xcassets */,
 				7286B9171CABAB5E001B9037 /* LaunchScreen.storyboard */,
@@ -270,6 +273,7 @@
 				7286B9751CABB923001B9037 /* AsyncButton.swift in Sources */,
 				7286B9821CABB923001B9037 /* KeyboardLayoutConstraint.swift in Sources */,
 				128716971CB035B300C90D19 /* StoriesTableViewController.swift in Sources */,
+				726BB0541CBB48920053CD40 /* Data.swift in Sources */,
 				72B928671CACD6D600396D1B /* LoginViewController.swift in Sources */,
 				7286B9891CABB923001B9037 /* SpringButton.swift in Sources */,
 				7286B9761CABB923001B9037 /* AsyncImageView.swift in Sources */,

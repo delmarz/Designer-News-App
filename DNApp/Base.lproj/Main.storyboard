@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -566,6 +567,7 @@
                                         <constraint firstItem="OZJ-Q4-muM" firstAttribute="top" secondItem="cjI-Nf-z8i" secondAttribute="bottom" id="4b8-Rk-IMt"/>
                                         <constraint firstItem="zKb-E3-bOr" firstAttribute="leading" secondItem="3qz-md-4ig" secondAttribute="trailing" constant="5" id="4vP-Or-0Yy"/>
                                         <constraint firstAttribute="trailing" secondItem="JRp-HV-Ank" secondAttribute="trailing" constant="8" id="5P5-wc-oev"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="OZJ-Q4-muM" secondAttribute="bottom" constant="4" id="5tl-bh-hhc"/>
                                         <constraint firstItem="zKb-E3-bOr" firstAttribute="top" secondItem="VBF-os-Rx2" secondAttribute="top" constant="8" id="5vY-KK-Mod"/>
                                         <constraint firstItem="cjI-Nf-z8i" firstAttribute="leading" secondItem="keQ-Yb-L4N" secondAttribute="trailing" constant="5" id="8w1-8I-Wsd"/>
                                         <constraint firstAttribute="bottom" secondItem="vlz-la-f21" secondAttribute="bottom" constant="12" id="BGg-eY-gzS"/>
@@ -612,7 +614,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="0em-pp-2g8" kind="show" identifier="" id="uvA-Qe-Q6a"/>
+                        <segue destination="0em-pp-2g8" kind="show" identifier="CommentSegue" id="uvA-Qe-Q6a"/>
                         <segue destination="Nza-Bh-aPX" kind="presentation" identifier="MenuSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="7fU-JJ-0Gk"/>
                         <segue destination="OhL-4f-m8X" kind="presentation" identifier="LoginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Fnl-oD-fNa"/>
                         <segue destination="SSP-aR-4A2" kind="presentation" identifier="WebSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="IkD-BG-v6V"/>
@@ -651,6 +653,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tlf-wf-dt1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.17254901960784313" green="0.38823529411764707" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
