@@ -8,8 +8,8 @@
 
 import UIKit
 
+
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate{
-  
   
   //MARK:
   //MARK: IBAction
@@ -32,18 +32,28 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   //MARK:
   //MARK: TableViewDataSource
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return 1//data.count
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as! StoryTableViewCell
-    cell.titleLabel.text = "Learn iOS Design Design and XcoDesign and XcoDesign and XcoDesign and XcoDesign and Xcoand Xcode"
-    cell.badgeImageView.image = UIImage(named: "badge-apple")
-    cell.avatarImageView.image = UIImage(named: "content-avatar-default")
-    cell.authorLabel.text = "Israel Mayor, iOS Developer and Unity"
-    cell.timeLabel.text = "5m"
-    cell.upVoteButton.setTitle("32", forState: UIControlState.Normal)
-    cell.commentbutton.setTitle("13", forState: UIControlState.Normal)
+//    let story = data[indexPath.row]
+//    let title = story["title"] as! String
+//    let badge = story["badge"] as! String
+//    //let userPortraitUrl = story["user_portrait_url"] as! String
+//    let userDisplayName = story["user_display_name"] as! String
+//    let userJob = story["user_job"] as! String
+//    let createdAt = story["create_at"] as! String
+//    let voteCount = story["vote_count"] as! Int
+//    let commentCount = story["comment_count"] as! Int
+//    
+//    cell.titleLabel.text = title
+//    cell.badgeImageView.image = UIImage(named: "badge-" + badge)
+//    cell.avatarImageView.image = UIImage(named: "content-avatar-default")
+//    cell.authorLabel.text = userDisplayName + "," + userJob
+//    cell.timeLabel.text = timeAgoSinceDate(dateFromString(createdAt, format: "yyyy-MM-dd'T'HH:mm:ssZ"), numericDates: true)
+//    cell.upVoteButton.setTitle(String(voteCount), forState: UIControlState.Normal)
+//    cell.commentbutton.setTitle(String(commentCount), forState: UIControlState.Normal)
     cell.delegate = self
     return cell
   }
