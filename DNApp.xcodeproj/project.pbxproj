@@ -11,7 +11,6 @@
 		12199BF81CB0FF65006E0B0E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12199BF71CB0FF65006E0B0E /* WebViewController.swift */; };
 		12199BFA1CB11809006E0B0E /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12199BF91CB11809006E0B0E /* StoryTableViewCell.swift */; };
 		128716971CB035B300C90D19 /* StoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128716961CB035B300C90D19 /* StoriesTableViewController.swift */; };
-		726BB0541CBB48920053CD40 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BB0531CBB48920053CD40 /* Data.swift */; };
 		7286B90F1CABAB5E001B9037 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286B90E1CABAB5E001B9037 /* AppDelegate.swift */; };
 		7286B9141CABAB5E001B9037 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7286B9121CABAB5E001B9037 /* Main.storyboard */; };
 		7286B9161CABAB5E001B9037 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7286B9151CABAB5E001B9037 /* Assets.xcassets */; };
@@ -46,6 +45,10 @@
 		7286B9901CABB923001B9037 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286B9731CABB923001B9037 /* TransitionZoom.swift */; };
 		7286B9911CABB923001B9037 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286B9741CABB923001B9037 /* UnwindSegue.swift */; };
 		72B928671CACD6D600396D1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B928661CACD6D600396D1B /* LoginViewController.swift */; };
+		72D061F31CBC9CF5006B40E3 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D061F21CBC9CF5006B40E3 /* CommentsTableViewController.swift */; };
+		72D061F51CBCA2C3006B40E3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D061F41CBCA2C3006B40E3 /* Data.swift */; };
+		72D062011CBCC3D3006B40E3 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D061FC1CBCC3D3006B40E3 /* SwiftyJSON.swift */; };
+		72D062031CBCCFD7006B40E3 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D062021CBCCFD7006B40E3 /* CommentTableViewCell.swift */; };
 		72E536ED1CAE3E6B00801A9F /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E536EC1CAE3E6B00801A9F /* LearnViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +57,6 @@
 		12199BF71CB0FF65006E0B0E /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		12199BF91CB11809006E0B0E /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		128716961CB035B300C90D19 /* StoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
-		726BB0531CBB48920053CD40 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		7286B90B1CABAB57001B9037 /* DNApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7286B90E1CABAB5E001B9037 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7286B9131CABAB5E001B9037 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,6 +94,10 @@
 		7286B9731CABB923001B9037 /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		7286B9741CABB923001B9037 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
 		72B928661CACD6D600396D1B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		72D061F21CBC9CF5006B40E3 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
+		72D061F41CBCA2C3006B40E3 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		72D061FC1CBCC3D3006B40E3 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		72D062021CBCCFD7006B40E3 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		72E536EC1CAE3E6B00801A9F /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +139,10 @@
 				72E536EC1CAE3E6B00801A9F /* LearnViewController.swift */,
 				12199BF51CB0EB2E006E0B0E /* MenuViewController.swift */,
 				12199BF71CB0FF65006E0B0E /* WebViewController.swift */,
-				726BB0531CBB48920053CD40 /* Data.swift */,
+				72D061F21CBC9CF5006B40E3 /* CommentsTableViewController.swift */,
+				72D062021CBCCFD7006B40E3 /* CommentTableViewCell.swift */,
+				72D061F41CBCA2C3006B40E3 /* Data.swift */,
+				72D061FC1CBCC3D3006B40E3 /* SwiftyJSON.swift */,
 				7286B9121CABAB5E001B9037 /* Main.storyboard */,
 				7286B9151CABAB5E001B9037 /* Assets.xcassets */,
 				7286B9171CABAB5E001B9037 /* LaunchScreen.storyboard */,
@@ -252,12 +261,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72D061F31CBC9CF5006B40E3 /* CommentsTableViewController.swift in Sources */,
 				7286B98B1CABB923001B9037 /* SpringLabel.swift in Sources */,
 				12199BFA1CB11809006E0B0E /* StoryTableViewCell.swift in Sources */,
+				72D062011CBCC3D3006B40E3 /* SwiftyJSON.swift in Sources */,
 				12199BF81CB0FF65006E0B0E /* WebViewController.swift in Sources */,
 				7286B9801CABB923001B9037 /* ImageLoader.swift in Sources */,
 				7286B9851CABB923001B9037 /* Misc.swift in Sources */,
 				7286B97A1CABB923001B9037 /* DesignableImageView.swift in Sources */,
+				72D061F51CBCA2C3006B40E3 /* Data.swift in Sources */,
 				7286B98A1CABB923001B9037 /* SpringImageView.swift in Sources */,
 				7286B9861CABB923001B9037 /* SoundPlayer.swift in Sources */,
 				7286B98D1CABB923001B9037 /* SpringTextView.swift in Sources */,
@@ -273,7 +285,6 @@
 				7286B9751CABB923001B9037 /* AsyncButton.swift in Sources */,
 				7286B9821CABB923001B9037 /* KeyboardLayoutConstraint.swift in Sources */,
 				128716971CB035B300C90D19 /* StoriesTableViewController.swift in Sources */,
-				726BB0541CBB48920053CD40 /* Data.swift in Sources */,
 				72B928671CACD6D600396D1B /* LoginViewController.swift in Sources */,
 				7286B9891CABB923001B9037 /* SpringButton.swift in Sources */,
 				7286B9761CABB923001B9037 /* AsyncImageView.swift in Sources */,
@@ -285,6 +296,7 @@
 				72E536ED1CAE3E6B00801A9F /* LearnViewController.swift in Sources */,
 				7286B98F1CABB923001B9037 /* TransitionManager.swift in Sources */,
 				7286B9781CABB923001B9037 /* BlurView.swift in Sources */,
+				72D062031CBCCFD7006B40E3 /* CommentTableViewCell.swift in Sources */,
 				7286B98E1CABB923001B9037 /* SpringView.swift in Sources */,
 				7286B9901CABB923001B9037 /* TransitionZoom.swift in Sources */,
 			);
