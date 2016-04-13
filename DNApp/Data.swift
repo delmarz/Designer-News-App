@@ -20,12 +20,24 @@ var data: JSON = [
     "vote_count": 43,
     "comment_count": 1,
     "comments": [
-//                  [
-//                  "body": "comment1"
-//                  ],
-//                  [
-//                  "body": "comment1"
-//                  ]
+//      [
+//        "user_portrairt_url": "https://designer-news-production.s3.amazonaws.com/rendered_portraits/484/original/portrait-2015-05-30_03_13_51__0000-48420150530-3-18a11au.png?AWSAccessKeyId=AKIAIBH3R762QIPXF4IQ&Expires=1491975917&Signature=%2FwGpIZAYRfo9JZ%2BNVAn71LS7qV0%3D",
+//        "user_display_name": "Sam S.",
+//        "user_job": "C# Programmer",
+//        "created_at": "2016-09-11T13:33:56Z",
+//        "vote_count": 13,
+//        "body": "body comment1"
+//      ]
+//      ,
+//      [
+//        "user_portrairt_url": "https://designer-news-production.s3.amazonaws.com/rendered_portraits/484/original/portrait-2015-05-30_03_13_51__0000-48420150530-3-18a11au.png?AWSAccessKeyId=AKIAIBH3R762QIPXF4IQ&Expires=1491975917&Signature=%2FwGpIZAYRfo9JZ%2BNVAn71LS7qV0%3D",
+//        "user_display_name": "Sam S.",
+//        "user_job": "C# Programmer",
+//        "created_at": "2016-09-11T13:33:56Z",
+//        "vote_count": 13,
+//        "body": "body comment1"
+//      ]
+
                 ]
   ],
   [
@@ -47,9 +59,15 @@ var data: JSON = [
                     "created_at": "2016-09-11T13:33:56Z",
                     "vote_count": 13,
                     "body": "body comment1"
-                  ],
+                  ]
+                  ,
                   [
-                    "body": "comment1"
+                    "user_portrairt_url": "https://designer-news-production.s3.amazonaws.com/rendered_portraits/484/original/portrait-2015-05-30_03_13_51__0000-48420150530-3-18a11au.png?AWSAccessKeyId=AKIAIBH3R762QIPXF4IQ&Expires=1491975917&Signature=%2FwGpIZAYRfo9JZ%2BNVAn71LS7qV0%3D",
+                    "user_display_name": "Sam2 S.",
+                    "user_job": "C# Programmer",
+                    "created_at": "2016-09-11T13:33:56Z",
+                    "vote_count": 13,
+                    "body": "body comment1"
                   ]
                 ]
   ]

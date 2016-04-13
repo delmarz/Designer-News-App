@@ -11,19 +11,18 @@ import UIKit
 class CommentsTableViewController: UITableViewController {
 
   var story: JSON!
-  var comment: JSON!
+  var comments: JSON!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    comment = story["comments"]
-    
-    print("\(comment.count)")
+        comments = story["comments"]
+        print(comments.count)
   }
   
   //MARK:
   //MARK: TableView DataSource
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return comment.count + 1
+    return 5//comments.count + 1
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -34,8 +33,10 @@ class CommentsTableViewController: UITableViewController {
     }
     
     if let commentCell = cell as? CommentTableViewCell {
+        let comment = comments[indexPath.row-1]
         commentCell.configureWithComment(comment)
     }
+    
     return cell
   }
  
