@@ -38,5 +38,7 @@ class CommentTableViewCell: UITableViewCell {
     commentTextView.text = body
     
     
+    
+    
   }
 }

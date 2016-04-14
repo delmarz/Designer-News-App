@@ -58,7 +58,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   
   func storyTableViewCellDidPressedComment(cell: StoryTableViewCell, sender: AnyObject) {
     print("comment")
-    performSegueWithIdentifier("CommentSegue", sender: cell)
+    performSegueWithIdentifier("CommentSegue", sender: sender)
   }
   
   //MARK:
@@ -70,6 +70,14 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
       let story = data[indexPath!.row]
       toView.story = story
     }
+    
+    if segue.identifier == "WebSegue" {
+      let toView = segue.destinationViewController as! WebViewController
+      let indexPath = sender as! NSIndexPath
+      let url = data[indexPath.row]["url"].string!
+      toView.url = url
+    }
+    
   }
   
   

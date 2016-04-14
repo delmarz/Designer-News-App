@@ -24,10 +24,30 @@ class LearnViewController: UIViewController {
   
   //MARK: 
   //MARK: IBAction
+  @IBAction func closeButtonPressed(sender: AnyObject) {
+    dialogView.animation = "fall"
+    dialogView.animateNext { 
+      self.dismissViewControllerAnimated(true, completion: nil)
+    }
+  }
   
   @IBAction func learnButtonPressed(sender: AnyObject) {
     bookImageView.animation = "pop"
     bookImageView.animate()
+    openURL("http://apple.com")
   }
+  
+  @IBAction func twitterButtonPressed(sender: AnyObject) {
+    openURL("http://twitter.com/delmarz")
+  }
+  
+  //MARK:
+  //MARK: Private Methods
+  func openURL(url: String) {
+    let targetURL = NSURL(string: url)
+    UIApplication.sharedApplication().openURL(targetURL!)
+  }
+  
+  
   
 }

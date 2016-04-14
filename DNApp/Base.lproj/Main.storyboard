@@ -323,10 +323,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="78s-9U-K3q">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                                <color key="progressTintColor" red="0.46860382314947824" green="0.77028559358837256" blue="0.97216303661616166" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="l8u-fP-Rdi" firstAttribute="top" secondItem="l9V-5K-Ie6" secondAttribute="top" id="4br-Eu-Ra4"/>
+                            <constraint firstItem="78s-9U-K3q" firstAttribute="top" secondItem="l9V-5K-Ie6" secondAttribute="top" id="53J-nm-Mvq"/>
+                            <constraint firstItem="78s-9U-K3q" firstAttribute="leading" secondItem="l9V-5K-Ie6" secondAttribute="leading" id="AHc-ZZ-rdS"/>
+                            <constraint firstAttribute="trailing" secondItem="78s-9U-K3q" secondAttribute="trailing" id="GeB-Ev-RK7"/>
                             <constraint firstItem="qTf-j1-Hrt" firstAttribute="centerY" secondItem="kgV-wv-drQ" secondAttribute="centerY" id="HmM-aB-r2W"/>
                             <constraint firstItem="qTf-j1-Hrt" firstAttribute="height" secondItem="kgV-wv-drQ" secondAttribute="height" id="Nbh-QY-iJ3"/>
                             <constraint firstAttribute="trailing" secondItem="l8u-fP-Rdi" secondAttribute="trailing" id="R20-5d-ZrZ"/>
@@ -339,6 +347,10 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="progressView" destination="78s-9U-K3q" id="Upf-gu-Pva"/>
+                        <outlet property="webView" destination="l8u-fP-Rdi" id="MdF-LZ-ggo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tz1-fD-oP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,8 +374,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="extraLight"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muv-eT-207">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="YKO-Sr-OLC" eventType="touchUpInside" id="QU1-nw-OTm"/>
+                                </connections>
+                            </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Om-4K-mjn" customClass="DesignableView" customModule="DNApp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="144" width="280" height="280"/>
                                 <subviews>
@@ -408,6 +427,9 @@
                                         <state key="normal" title="@israelDelmayor" image="icon-twitter">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="twitterButtonPressed:" destination="YKO-Sr-OLC" eventType="touchUpInside" id="Uax-3B-2tz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bom-05-xVP">
                                         <rect key="frame" x="0.0" y="154" width="280" height="40"/>
@@ -436,7 +458,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gIw-2s-fmT" firstAttribute="top" secondItem="DpF-8B-25I" secondAttribute="bottom" id="EmJ-lf-ov5"/>
                             <constraint firstItem="2Om-4K-mjn" firstAttribute="centerX" secondItem="UR9-rW-2ag" secondAttribute="centerX" id="Lv4-al-Yam"/>
@@ -919,7 +941,7 @@
         <image name="input-outline" width="250" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IkD-BG-v6V"/>
         <segue reference="Fnl-oD-fNa"/>
+        <segue reference="QxN-aB-Nhy"/>
     </inferredMetricsTieBreakers>
 </document>

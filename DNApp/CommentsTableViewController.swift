@@ -22,22 +22,22 @@ class CommentsTableViewController: UITableViewController {
   //MARK:
   //MARK: TableView DataSource
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5//comments.count + 1
+    return comments.count + 1
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let identifier = indexPath.row == 0 ? "StoryCell" : "CommentCell"
     let cell = tableView.dequeueReusableCellWithIdentifier(identifier)! as UITableViewCell
+    
     if let storyCell = cell as? StoryTableViewCell {
-         storyCell.configureWithStory(story)
+      storyCell.configureWithStory(story)
     }
     
     if let commentCell = cell as? CommentTableViewCell {
-        let comment = comments[indexPath.row-1]
-        commentCell.configureWithComment(comment)
+      let comment = comments[indexPath.row-1]
+      commentCell.configureWithComment(comment)
     }
     
     return cell
   }
- 
 }
