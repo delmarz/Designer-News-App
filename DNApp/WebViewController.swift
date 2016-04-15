@@ -23,19 +23,21 @@ class WebViewController: UIViewController, UIWebViewDelegate {
       webView.loadRequest(request)
       webView.delegate = self
     print(url)
-    
+    UIApplication.sharedApplication().statusBarHidden = true
   }
-
+  
   //MARK:
   //MARK: IBACtion
     @IBAction func closeButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+        UIApplication.sharedApplication().statusBarHidden = false
     }
   
   //MARK:
   //MARK: WebView Delegate
   func webViewDidStartLoad(webView: UIWebView) {
     hasFinishedLoading = false
+    updateProgress()
   }
   
   func webViewDidFinishLoad(webView: UIWebView) {
@@ -79,4 +81,8 @@ class WebViewController: UIViewController, UIWebViewDelegate {
       
     }
   }
+  
+
+  
+  
 }

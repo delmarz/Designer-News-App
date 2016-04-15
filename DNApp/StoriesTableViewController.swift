@@ -11,6 +11,8 @@ import UIKit
 
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate{
   
+  let transitionManager = TransitionManager()
+
   //MARK:
   //MARK: IBAction
   @IBAction func menuBarButtonItemPressed(sender: AnyObject) {
@@ -47,7 +49,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   //MARK: TableViewDelegate
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    performSegueWithIdentifier("WebSegue", sender: self)
+    performSegueWithIdentifier("WebSegue", sender: indexPath)
   }
   
   //MARK:
@@ -58,7 +60,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   
   func storyTableViewCellDidPressedComment(cell: StoryTableViewCell, sender: AnyObject) {
     print("comment")
-    performSegueWithIdentifier("CommentSegue", sender: sender)
+    performSegueWithIdentifier("CommentSegue", sender: cell)
   }
   
   //MARK:
@@ -73,8 +75,9 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     if segue.identifier == "WebSegue" {
       let toView = segue.destinationViewController as! WebViewController
-      let indexPath = sender as! NSIndexPath
+      let indexPath = sender as! NSIndexPath  
       let url = data[indexPath.row]["url"].string!
+      toView.transitioningDelegate = transitionManager
       toView.url = url
     }
     

@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
   
   //MARK:
   //MARK: IBAction
-
   @IBAction func loginButtonPressed(sender: AnyObject) {
     dialogView.animation = "shake"
     dialogView.animate()
@@ -29,5 +28,11 @@ class LoginViewController: UIViewController {
     @IBAction func closeButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+  
+  //MARK:
+  //MARK: Private Methods
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    view.endEditing(true)
+  }
 
 }
