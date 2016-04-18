@@ -12,7 +12,9 @@ import UIKit
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate{
   
   let transitionManager = TransitionManager()
-
+  var stories: JSON! = []
+  
+  
   //MARK:
   //MARK: IBAction
   @IBAction func menuBarButtonItemPressed(sender: AnyObject) {
@@ -29,17 +31,21 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     super.viewDidLoad()
     tableView.estimatedRowHeight = 100
     tableView.rowHeight = UITableViewAutomaticDimension
+    
+    loadStories("", page: 1)
+    
+    print(loadStories("", page: 1))
   }
   
   //MARK:
   //MARK: TableViewDataSource
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return data.count
+    return stories.count//data.count
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as! StoryTableViewCell
-    let story = data[indexPath.row]
+    let story = stories[indexPath.row]//data[indexPath.row]
     cell.configureWithStory(story)
     cell.delegate = self
     return cell
@@ -64,19 +70,28 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   }
   
   //MARK:
+  //MARK: Private Methods
+  
+  func loadStories(section: String, page: Int) {
+    DNService.storiesForSection(section, page: page) { (JSON) -> () in
+      self.stories = JSON["stories"]
+      self.tableView.reloadData()
+    }
+  }
+  //MARK:
   //MARK: Segue
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "CommentSegue" {
       let toView = segue.destinationViewController as! CommentsTableViewController
       let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
-      let story = data[indexPath!.row]
+      let story = stories[indexPath!.row]//data[indexPath!.row]
       toView.story = story
     }
     
     if segue.identifier == "WebSegue" {
       let toView = segue.destinationViewController as! WebViewController
       let indexPath = sender as! NSIndexPath  
-      let url = data[indexPath.row]["url"].string!
+      let url = stories[indexPath.row]["url"].string!//data[indexPath.row]["url"].string!
       toView.transitioningDelegate = transitionManager
       toView.url = url
     }

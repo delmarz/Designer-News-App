@@ -24,7 +24,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eS-ig-vgB" customClass="TPKeyboardAvoidingCollectionView">
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eS-ig-vgB" customClass="TPKeyboardAvoidingScrollView">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcQ-Cu-jzz">
@@ -81,7 +81,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </textField>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-mail" translatesAutoresizingMaskIntoConstraints="NO" id="OFb-Kr-ZOR">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-mail" translatesAutoresizingMaskIntoConstraints="NO" id="OFb-Kr-ZOR" customClass="SpringImageView" customModule="DNApp" customModuleProvider="target">
                                                             <rect key="frame" x="28" y="111" width="26" height="18"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75W-ZB-dkq" customClass="DesignableButton" customModule="DNApp" customModuleProvider="target">
@@ -103,7 +103,7 @@
                                                                 <action selector="loginButtonPressed:" destination="OhL-4f-m8X" eventType="touchUpInside" id="bwC-OV-bXJ"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-password" translatesAutoresizingMaskIntoConstraints="NO" id="aDF-Xy-5zk">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-password" translatesAutoresizingMaskIntoConstraints="NO" id="aDF-Xy-5zk" customClass="SpringImageView" customModule="DNApp" customModuleProvider="target">
                                                             <rect key="frame" x="29" y="162" width="25" height="25"/>
                                                         </imageView>
                                                     </subviews>
@@ -173,6 +173,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="dialogView" destination="cg6-d6-niW" id="i3X-uf-ran"/>
+                        <outlet property="emailImageView" destination="OFb-Kr-ZOR" id="l7a-GG-AvJ"/>
+                        <outlet property="emailTextField" destination="kGC-S6-0Im" id="2q3-7l-Ih2"/>
+                        <outlet property="passwordImageView" destination="aDF-Xy-5zk" id="AFD-Nk-VL3"/>
+                        <outlet property="passwordTextField" destination="asr-y8-Men" id="mLj-6j-g5s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRK-no-0bc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -966,6 +970,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IkD-BG-v6V"/>
-        <segue reference="mGR-Pc-sS5"/>
+        <segue reference="Fnl-oD-fNa"/>
     </inferredMetricsTieBreakers>
 </document>

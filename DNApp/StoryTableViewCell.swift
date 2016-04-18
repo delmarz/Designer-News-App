@@ -41,15 +41,15 @@ class StoryTableViewCell: UITableViewCell {
   //MARK:
   //MARK: Private Methods
   func configureWithStory(story: JSON) {
-    let title = story["title"].string!
-    let badge = story["badge"].string!
+    let title = story["title"].string ?? ""
+    let badge = story["badge"].string ?? ""
     //let userPortraitUrl = story["user_portrait_url"] as! String
-    let userDisplayName = story["user_display_name"].string!
-    let userJob = story["user_job"].string!
-    let createdAt = story["created_at"].string!
+    let userDisplayName = story["user_display_name"].string ?? ""
+    let userJob = story["user_job"].string ?? ""
+    let createdAt = story["created_at"].string ?? ""
     let voteCount = story["vote_count"].int!
     let commentCount = story["comment_count"].int!
-    let comment = story["comments"].string
+    let comment = story["comments"].string ?? ""
     
     if let commentTextView = commentTextView {
       commentTextView.text = comment
