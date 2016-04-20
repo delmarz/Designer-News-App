@@ -8,8 +8,16 @@
 
 import UIKit
 
+
+protocol MenuViewControllerDelegate: class {
+  func menuViewControllerDiDPressedTop(controller: MenuViewController)
+  func menuViewControllerDidPressedRecent(controller: MenuViewController)
+}
+
 class MenuViewController: UIViewController {
 
+  weak var delegate: MenuViewControllerDelegate?
+  
     @IBOutlet var dialogView: DesignableView!
     
     //MARK:
@@ -19,5 +27,18 @@ class MenuViewController: UIViewController {
         dialogView.animation = "fall"
         dialogView.animate()
     }
+  
+  @IBAction func topButtonPressed(sender: AnyObject) {
+    delegate?.menuViewControllerDiDPressedTop(self)
+    closeButtonPressed(sender)
+  }
+  
+  @IBAction func recentButtonPressed(sender: AnyObject) {
+    delegate?.menuViewControllerDidPressedRecent(self)
+    closeButtonPressed(sender)
+  }
+  
+  @IBAction func loginButtonPressed(sender: AnyObject) {
+  }
 
 }

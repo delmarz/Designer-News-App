@@ -9,7 +9,7 @@
 import UIKit
 
 
-class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate{
+class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate, MenuViewControllerDelegate{
   
   let transitionManager = TransitionManager()
   var stories: JSON! = []
@@ -78,8 +78,22 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   }
   
   //MARK:
-  //MARK: Private Methods
+  //MARK: MenuViewController Delegate
+  func menuViewControllerDiDPressedTop(controller: MenuViewController) {
+    view.showLoading()
+    loadStories("", page: 1)
+    navigationItem.title = "Top Stories"
+  }
   
+  func menuViewControllerDidPressedRecent(controller: MenuViewController) {
+    view.showLoading()
+    loadStories("recent", page: 1)
+    navigationItem.title = "Recent Stories"
+  }
+  
+  
+  //MARK:
+  //MARK: Private Methods
   func loadStories(section: String, page: Int) {
     DNService.storiesForSection(section, page: page) { (JSON) ->() in
             self.stories = JSON["stories"]
@@ -107,7 +121,15 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
       toView.url = url
     }
     
+    if segue.identifier == "MenuSegue" {
+      let toView = segue.destinationViewController as! MenuViewController
+      toView.delegate = self
+    }
+    
   }
+  
+  
+  
   
   
 }

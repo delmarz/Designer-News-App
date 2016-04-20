@@ -18,11 +18,11 @@ class StoryTableViewCell: UITableViewCell {
   @IBOutlet weak var badgeImageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
-  @IBOutlet weak var avatarImageView: UIImageView!
   @IBOutlet weak var authorLabel: UILabel!
   @IBOutlet weak var upVoteButton: SpringButton!
   @IBOutlet weak var commentbutton: SpringButton!
   @IBOutlet weak var commentTextView: AutoTextView!
+  @IBOutlet weak var avatarImageView: AsyncImageView!
   
   @IBAction func upVoteButtonPressed(sender: AnyObject) {
     upVoteButton.animation = "pop"
@@ -43,21 +43,25 @@ class StoryTableViewCell: UITableViewCell {
   func configureWithStory(story: JSON) {
     let title = story["title"].string ?? ""
     let badge = story["badge"].string ?? ""
-    //let userPortraitUrl = story["user_portrait_url"] as! String
     let userDisplayName = story["user_display_name"].string ?? ""
     let userJob = story["user_job"].string ?? ""
     let createdAt = story["created_at"].string ?? ""
     let voteCount = story["vote_count"].int!
     let commentCount = story["comment_count"].int!
     let comment = story["comments"].string ?? ""
+    let commentHTML = story["comment_html"].string ?? ""
     
     if let commentTextView = commentTextView {
       commentTextView.text = comment
+      commentTextView.attributedText = htmlToAttributedString(commentHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>")
     }
     
+    let userPortraitUrl = story["user_portrait_url"].string
+    avatarImageView.url = userPortraitUrl?.toURL()
+    
+    avatarImageView.placeholderImage = UIImage(named: "content-avatar-default")
     titleLabel.text = title
     badgeImageView.image = UIImage(named: "badge-" + badge)
-    avatarImageView.image = UIImage(named: "content-avatar-default")
     authorLabel.text = userDisplayName + "," + userJob
     timeLabel.text = timeAgoSinceDate(dateFromString(createdAt, format: "yyyy-MM-dd'T'HH:mm:ssZ"), numericDates: true)
     upVoteButton.setTitle(String(voteCount), forState: UIControlState.Normal)
