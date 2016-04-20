@@ -6,7 +6,6 @@
 //  Copyright © 2016 Kryptonite. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 
 struct DNService {
@@ -42,16 +41,20 @@ struct DNService {
   
   static func storiesForSection(section: String, page: Int, response: (JSON) -> ()) {
     let urlString = baseURL + ResourcePath.Stories.description + "/" + section
-    
     print("this is urlstring " + urlString)
-    let parameters: [String:AnyObject] = [
+    let parameters = [
                       "page": String(page),
                       "client_id": clientID
                      ]
- 
-    Alamofire.request(.GET, urlString, parameters: parameters).response { (_, _, data, _) in
+    Alamofire.request(.GET, urlString, parameters: parameters).responseJSON { (responseData)  in
+      //debugPrint(response.result)
+      switch responseData.result {
+      case .Success(let data):
       let stories = JSON(data ?? [])
-      response(stories)
+        response(stories)
+      case .Failure:
+        print("error")
+      }
     }
   }
   

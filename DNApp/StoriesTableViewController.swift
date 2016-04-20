@@ -13,7 +13,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   
   let transitionManager = TransitionManager()
   var stories: JSON! = []
-  
+  var isFirstTime = true
   
   //MARK:
   //MARK: IBAction
@@ -35,6 +35,14 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     loadStories("", page: 1)
     
     print(loadStories("", page: 1))
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(true)
+    if isFirstTime {
+      view.showLoading()
+      isFirstTime = false
+    }
   }
   
   //MARK:
@@ -73,11 +81,14 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   //MARK: Private Methods
   
   func loadStories(section: String, page: Int) {
-    DNService.storiesForSection(section, page: page) { (JSON) -> () in
-      self.stories = JSON["stories"]
-      self.tableView.reloadData()
+    DNService.storiesForSection(section, page: page) { (JSON) ->() in
+            self.stories = JSON["stories"]
+            print(JSON)
+            self.tableView.reloadData()
+            self.view.hideLoading()
     }
   }
+  
   //MARK:
   //MARK: Segue
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

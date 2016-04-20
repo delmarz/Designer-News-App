@@ -969,7 +969,7 @@
         <image name="input-outline" width="250" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IkD-BG-v6V"/>
         <segue reference="Fnl-oD-fNa"/>
+        <segue reference="IkD-BG-v6V"/>
     </inferredMetricsTieBreakers>
 </document>
