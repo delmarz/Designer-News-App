@@ -17,6 +17,9 @@ class CommentsTableViewController: UITableViewController {
     super.viewDidLoad()
         comments = story["comments"]
         print(comments.count)
+    
+    tableView.estimatedRowHeight = 100
+    tableView.rowHeight = UITableViewAutomaticDimension
   }
   
   //MARK:

@@ -29,7 +29,7 @@ class CommentTableViewCell: UITableViewCell {
     let userJob = comment["user_job"].string ?? ""
     let createdAt = comment["created_at"].string ?? ""
     let voteCount = comment["vote_count"].int!
-    let body = comment["body"].string ?? ""    
+    //let body = comment["body"].string ?? ""
     let bodyHTML = comment["body_html"].string ?? ""
     
     let userPortraitUrl = comment["user_portrait_url"].string
@@ -39,7 +39,7 @@ class CommentTableViewCell: UITableViewCell {
     authorLabel.text = userDisplayName + "," + userJob
     timeLabel.text = timeAgoSinceDate(dateFromString(createdAt, format: "yyyy-MM-dd'T'HH:mm:ssZ"), numericDates: true)
     upvoteButton.setTitle(String(voteCount), forState: UIControlState.Normal)
-    commentTextView.text = body
+    //commentTextView.text = body
     commentTextView.attributedText = htmlToAttributedString(bodyHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>")
   }
 }

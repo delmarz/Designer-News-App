@@ -776,6 +776,7 @@
                                         <constraint firstAttribute="trailing" secondItem="HMa-gL-z1x" secondAttribute="trailing" constant="15" id="Bpr-Mv-RBO"/>
                                         <constraint firstAttribute="trailing" secondItem="QAY-CN-R7J" secondAttribute="trailing" constant="45" id="DWo-yC-nv1"/>
                                         <constraint firstAttribute="bottom" secondItem="HMa-gL-z1x" secondAttribute="bottom" constant="11.5" id="G1R-xi-nab"/>
+                                        <constraint firstItem="HMa-gL-z1x" firstAttribute="top" secondItem="Hub-CV-pn3" secondAttribute="bottom" constant="-2" id="LRK-21-TBr"/>
                                         <constraint firstAttribute="trailing" secondItem="FQC-lr-q6a" secondAttribute="trailing" constant="10" id="MZI-Yu-dEB"/>
                                         <constraint firstItem="BfC-UI-LbN" firstAttribute="top" secondItem="QAY-CN-R7J" secondAttribute="bottom" constant="7" id="SEY-4r-G7v"/>
                                         <constraint firstItem="W7o-By-ajg" firstAttribute="leading" secondItem="2t3-d7-dU7" secondAttribute="leading" constant="10" id="Tvq-73-SDl"/>
