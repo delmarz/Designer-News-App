@@ -9,8 +9,9 @@
 import UIKit
 
 
-class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate, MenuViewControllerDelegate{
+class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate, MenuViewControllerDelegate, LoginViewControllerDelegate{
   
+  @IBOutlet weak var loginBarButtonItem: UIBarButtonItem!
   let transitionManager = TransitionManager()
   var stories: JSON! = []
   var isFirstTime = true
@@ -36,7 +37,6 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     tableView.estimatedRowHeight = 100
     tableView.rowHeight = UITableViewAutomaticDimension
     loadStories("", page: 1)
-
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -101,6 +101,19 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     section = "recent"
   }
   
+  //MARK:
+  //MARK: LoginViewController Delegate
+  func loginWithControllerDidPressed(controller: LoginViewController) {
+    loadStories(section, page: 1)
+    view.showLoading()
+    if LocalStore.getToken() == nil {
+      loginBarButtonItem.title = "Login"
+      loginBarButtonItem.enabled = true
+    } else {
+      loginBarButtonItem.title = ""
+      loginBarButtonItem.enabled = false
+    }
+  }
   
   //MARK:
   //MARK: Private Methods
@@ -137,7 +150,14 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
       toView.delegate = self
     }
     
+    if segue.identifier == "LoginSegue" {
+      let toView = segue.destinationViewController as! LoginViewController
+      toView.delegate = self
+    }
+    
   }
+  
+  
   
   
   

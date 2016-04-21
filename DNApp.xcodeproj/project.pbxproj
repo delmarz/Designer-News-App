@@ -56,6 +56,7 @@
 		72D061F51CBCA2C3006B40E3 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D061F41CBCA2C3006B40E3 /* Data.swift */; };
 		72D062011CBCC3D3006B40E3 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D061FC1CBCC3D3006B40E3 /* SwiftyJSON.swift */; };
 		72D062031CBCCFD7006B40E3 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D062021CBCCFD7006B40E3 /* CommentTableViewCell.swift */; };
+		72D327DE1CC8B15C0098CB73 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D327DD1CC8B15C0098CB73 /* LocalStore.swift */; };
 		72E536ED1CAE3E6B00801A9F /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E536EC1CAE3E6B00801A9F /* LearnViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +189,7 @@
 		72D061F41CBCA2C3006B40E3 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		72D061FC1CBCC3D3006B40E3 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		72D062021CBCCFD7006B40E3 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		72D327DD1CC8B15C0098CB73 /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		72E536EC1CAE3E6B00801A9F /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,6 +280,7 @@
 				72D061F41CBCA2C3006B40E3 /* Data.swift */,
 				72D061FC1CBCC3D3006B40E3 /* SwiftyJSON.swift */,
 				722D8F8B1CC4B92700F5CBCA /* DNService.swift */,
+				72D327DD1CC8B15C0098CB73 /* LocalStore.swift */,
 				7246C0E11CC74BB60023EBB5 /* Supporting Files */,
 			);
 			path = DNApp;
@@ -507,6 +510,7 @@
 				72E536ED1CAE3E6B00801A9F /* LearnViewController.swift in Sources */,
 				7286B98F1CABB923001B9037 /* TransitionManager.swift in Sources */,
 				7286B9781CABB923001B9037 /* BlurView.swift in Sources */,
+				72D327DE1CC8B15C0098CB73 /* LocalStore.swift in Sources */,
 				72D062031CBCCFD7006B40E3 /* CommentTableViewCell.swift in Sources */,
 				7286B98E1CABB923001B9037 /* SpringView.swift in Sources */,
 				72BC363F1CC0BC0800EF5AA5 /* TPKeyboardAvoidingCollectionView.m in Sources */,

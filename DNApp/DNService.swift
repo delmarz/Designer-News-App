@@ -36,9 +36,6 @@ struct DNService {
   
     }
   
-  
-  
-  
   static func storiesForSection(section: String, page: Int, response: (JSON) -> ()) {
     let urlString = baseURL + ResourcePath.Stories.description + "/" + section
     print("this is urlstring " + urlString)
@@ -54,6 +51,27 @@ struct DNService {
         response(stories)
       case .Failure:
         print("error")
+      }
+    }
+  }
+  
+  static func loginWithEmail(email: String, password: String, response: (token: String?) -> ()) {
+    let urlString = baseURL + ResourcePath.Login.description
+    let parameters = [
+                      "grant_type": "password",
+                      "username": email,
+                      "password": password,
+                      "client_id": clientID,
+                      "client_secret": clientSecret
+                     ]
+    Alamofire.request(.POST, urlString, parameters: parameters).responseJSON { (responseJson) in
+      switch responseJson.result {
+      case .Success(let data):
+      let json =  JSON(data)
+      let token = json["access_token"].string
+      response(token: token)
+      default:
+      break
       }
     }
   }

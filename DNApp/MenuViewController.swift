@@ -8,25 +8,35 @@
 
 import UIKit
 
-
 protocol MenuViewControllerDelegate: class {
   func menuViewControllerDiDPressedTop(controller: MenuViewController)
   func menuViewControllerDidPressedRecent(controller: MenuViewController)
 }
 
 class MenuViewController: UIViewController {
-
   weak var delegate: MenuViewControllerDelegate?
   
-    @IBOutlet var dialogView: DesignableView!
-    
-    //MARK:
-    //MARK: IBAction
-    @IBAction func closeButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-        dialogView.animation = "fall"
-        dialogView.animate()
+  @IBOutlet var dialogView: DesignableView!
+  @IBOutlet weak var loginLabel: UILabel!
+  
+  //MARK:
+  //MARK: View Life Cycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    if LocalStore.getToken() == nil {
+      loginLabel.text = "Login"
+    } else {
+      loginLabel.text = "Logout"
     }
+  }
+  
+  //MARK:
+  //MARK: IBAction
+  @IBAction func closeButtonPressed(sender: AnyObject) {
+    dismissViewControllerAnimated(true, completion: nil)
+    dialogView.animation = "fall"
+    dialogView.animate()
+  }
   
   @IBAction func topButtonPressed(sender: AnyObject) {
     delegate?.menuViewControllerDiDPressedTop(self)
@@ -40,5 +50,5 @@ class MenuViewController: UIViewController {
   
   @IBAction func loginButtonPressed(sender: AnyObject) {
   }
-
+  
 }
