@@ -14,7 +14,8 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   let transitionManager = TransitionManager()
   var stories: JSON! = []
   var isFirstTime = true
-  
+  var section = ""
+
   //MARK:
   //MARK: IBAction
   @IBAction func menuBarButtonItemPressed(sender: AnyObject) {
@@ -29,12 +30,13 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   //MARK: View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    refreshControl?.addTarget(self, action: #selector(StoriesTableViewController.refreshStories), forControlEvents: UIControlEvents.ValueChanged)
+    
     tableView.estimatedRowHeight = 100
     tableView.rowHeight = UITableViewAutomaticDimension
-    
     loadStories("", page: 1)
-    
-    print(loadStories("", page: 1))
+
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -43,6 +45,12 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
       view.showLoading()
       isFirstTime = false
     }
+  }
+  
+  //MARK:
+  //MARK: Refresh Stories
+  func refreshStories() {
+    loadStories(section, page: 1)
   }
   
   //MARK:
@@ -83,12 +91,14 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     view.showLoading()
     loadStories("", page: 1)
     navigationItem.title = "Top Stories"
+    section = ""
   }
   
   func menuViewControllerDidPressedRecent(controller: MenuViewController) {
     view.showLoading()
     loadStories("recent", page: 1)
     navigationItem.title = "Recent Stories"
+    section = "recent"
   }
   
   
@@ -100,6 +110,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
             print(JSON)
             self.tableView.reloadData()
             self.view.hideLoading()
+            self.refreshControl?.endRefreshing()
     }
   }
   
