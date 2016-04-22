@@ -16,7 +16,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   var stories: JSON! = []
   var isFirstTime = true
   var section = ""
-
+  
   //MARK:
   //MARK: IBAction
   @IBAction func menuBarButtonItemPressed(sender: AnyObject) {
@@ -31,7 +31,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   //MARK: View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     refreshControl?.addTarget(self, action: #selector(StoriesTableViewController.refreshStories), forControlEvents: UIControlEvents.ValueChanged)
     
     tableView.estimatedRowHeight = 100
@@ -101,29 +101,38 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     section = "recent"
   }
   
+  func menuViewControllerDidPressedLogout(controller: MenuViewController) {
+    view.showLoading()
+    loadStories(section, page: 1)
+    print("test logout")
+  }
+  
+  
   //MARK:
   //MARK: LoginViewController Delegate
   func loginWithControllerDidPressed(controller: LoginViewController) {
     loadStories(section, page: 1)
     view.showLoading()
-    if LocalStore.getToken() == nil {
-      loginBarButtonItem.title = "Login"
-      loginBarButtonItem.enabled = true
-    } else {
-      loginBarButtonItem.title = ""
-      loginBarButtonItem.enabled = false
-    }
   }
   
   //MARK:
   //MARK: Private Methods
   func loadStories(section: String, page: Int) {
     DNService.storiesForSection(section, page: page) { (JSON) ->() in
-            self.stories = JSON["stories"]
-            print(JSON)
-            self.tableView.reloadData()
-            self.view.hideLoading()
-            self.refreshControl?.endRefreshing()
+      self.stories = JSON["stories"]
+      //print(JSON)
+      
+      if LocalStore.getToken() == nil {
+        self.loginBarButtonItem.title = "Login"
+        self.loginBarButtonItem.enabled = true
+      } else {
+        self.loginBarButtonItem.title = ""
+        self.loginBarButtonItem.enabled = false
+      }
+      
+      self.tableView.reloadData()
+      self.view.hideLoading()
+      self.refreshControl?.endRefreshing()
     }
   }
   
@@ -139,7 +148,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     
     if segue.identifier == "WebSegue" {
       let toView = segue.destinationViewController as! WebViewController
-      let indexPath = sender as! NSIndexPath  
+      let indexPath = sender as! NSIndexPath
       let url = stories[indexPath.row]["url"].string!//data[indexPath.row]["url"].string!
       toView.transitioningDelegate = transitionManager
       toView.url = url

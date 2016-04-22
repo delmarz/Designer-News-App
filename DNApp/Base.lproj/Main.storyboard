@@ -212,7 +212,6 @@
                                         <state key="normal" image="big-top"/>
                                         <connections>
                                             <action selector="topButtonPressed:" destination="Nza-Bh-aPX" eventType="touchUpInside" id="zbw-Ue-39v"/>
-                                            <segue destination="fzQ-Ku-uOw" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Frc-8c-wd7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD3-ed-29D">
@@ -231,7 +230,6 @@
                                         <state key="normal" image="big-login"/>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="Nza-Bh-aPX" eventType="touchUpInside" id="dNl-Pq-Zj0"/>
-                                            <segue destination="OhL-4f-m8X" kind="presentation" identifier="" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="mGR-Pc-sS5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIl-H3-hYT">
@@ -296,6 +294,7 @@
                     <connections>
                         <outlet property="dialogView" destination="Wyt-14-L0E" id="iZB-mi-Kbl"/>
                         <outlet property="loginLabel" destination="Wsl-53-qHF" id="SJM-hD-aGM"/>
+                        <segue destination="OhL-4f-m8X" kind="presentation" identifier="LoginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="evU-6e-X3s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBQ-sE-M2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -980,7 +979,7 @@
         <image name="input-outline" width="250" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mGR-Pc-sS5"/>
         <segue reference="IkD-BG-v6V"/>
+        <segue reference="evU-6e-X3s"/>
     </inferredMetricsTieBreakers>
 </document>

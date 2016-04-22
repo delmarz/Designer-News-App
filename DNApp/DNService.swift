@@ -33,7 +33,6 @@ struct DNService {
         case .CommentReply(let id): return "/api/comments/\(id)/reply"
         }
       }
-  
     }
   
   static func storiesForSection(section: String, page: Int, response: (JSON) -> ()) {

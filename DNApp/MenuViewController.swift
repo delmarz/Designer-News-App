@@ -11,9 +11,10 @@ import UIKit
 protocol MenuViewControllerDelegate: class {
   func menuViewControllerDiDPressedTop(controller: MenuViewController)
   func menuViewControllerDidPressedRecent(controller: MenuViewController)
+  func menuViewControllerDidPressedLogout(controller: MenuViewController)
 }
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, LoginViewControllerDelegate{
   weak var delegate: MenuViewControllerDelegate?
   
   @IBOutlet var dialogView: DesignableView!
@@ -49,6 +50,32 @@ class MenuViewController: UIViewController {
   }
   
   @IBAction func loginButtonPressed(sender: AnyObject) {
+    if LocalStore.getToken() == nil {
+      performSegueWithIdentifier("LoginSegue", sender: self)
+    } else {
+      LocalStore.deleteToken()
+      self.closeButtonPressed(self)
+      delegate?.menuViewControllerDidPressedLogout(self)
+      print("logout token is", LocalStore.getToken())
+    }
+  }
+  
+  //MARK:
+  //MARK: LoginViewController Delegate
+  func loginWithControllerDidPressed(controller: LoginViewController) {
+    closeButtonPressed(self)
+    delegate?.menuViewControllerDidPressedLogout(self)
+    print("loginpressed delegate")
+  }
+  
+  //MARK:
+  //MARK: Segue
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "LoginSegue" {
+      let toView = segue.destinationViewController as! LoginViewController
+      toView.delegate = self
+    }
   }
   
 }
