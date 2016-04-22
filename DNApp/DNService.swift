@@ -75,4 +75,19 @@ struct DNService {
     }
   }
   
+  static func upvoteStoryWithId(storyId: Int, token: String, response: (successful: Bool) -> ()) {
+    let urlString = baseURL + ResourcePath.StoryUpvote(storyId: storyId).description
+    let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+    request.HTTPMethod = "POST"
+    request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    
+    Alamofire.request(.GET, urlString).responseJSON { (urlResponse) in
+        let statusCode = (urlResponse.response?.statusCode)! == 200
+        response(successful: statusCode)
+      print(response)
+    }
+    
+  }
+  
+  
 }
