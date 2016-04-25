@@ -64,7 +64,16 @@ class StoryTableViewCell: UITableViewCell {
     badgeImageView.image = UIImage(named: "badge-" + badge)
     authorLabel.text = userDisplayName + "," + userJob
     timeLabel.text = timeAgoSinceDate(dateFromString(createdAt, format: "yyyy-MM-dd'T'HH:mm:ssZ"), numericDates: true)
-    upVoteButton.setTitle(String(voteCount), forState: UIControlState.Normal)
+    
+    let storyId = story["id"].int!
+    if LocalStore.isStoryUpvoted(storyId) {
+      upVoteButton.setImage(UIImage(named: "icon-upvote-active"), forState: UIControlState.Normal)
+      upVoteButton.setTitle(String(voteCount + 1), forState: UIControlState.Normal)
+    } else {
+      upVoteButton.setImage(UIImage(named: "icon-upvote"), forState: UIControlState.Normal)
+      upVoteButton.setTitle(String(voteCount), forState: UIControlState.Normal)
+    }
+
     commentbutton.setTitle(String(commentCount), forState: UIControlState.Normal)
   }
 }

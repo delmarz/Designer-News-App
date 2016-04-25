@@ -77,7 +77,27 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   //MARK:
   //MARK: StoryTableViewCellDelegate
   func storyTableViewCellDidPressedUpVote(cell: StoryTableViewCell, sender: AnyObject) {
+    if let token = LocalStore.getToken() {
+      let indexPath = tableView.indexPathForCell(cell)!
+      let story = stories[indexPath.row]
+      let storyId = story["id"].int!
+      LocalStore.saveUpvotedStory(storyId)
+      cell.configureWithStory(story)
+
+      DNService.upvoteStoryWithId(storyId, token: token
+        , response: { (successful) in
+          // do something
+          print("success upvote!")
+
+//        cell.upVoteButton.setImage(UIImage(named: "icon-upvote-active"), forState: UIControlState.Normal)
+//        cell.upVoteButton.setTitle(String(story["vote_count"]), forState: UIControlState.Normal)
+          print("story id \(storyId)")
+      })
+    } else {
+      performSegueWithIdentifier("LoginSegue", sender: self)
+    }
     print("up vote")
+
   }
   
   func storyTableViewCellDidPressedComment(cell: StoryTableViewCell, sender: AnyObject) {
@@ -113,6 +133,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   func loginWithControllerDidPressed(controller: LoginViewController) {
     loadStories(section, page: 1)
     view.showLoading()
+    print("login test test")
   }
   
   //MARK:
@@ -129,7 +150,6 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
         self.loginBarButtonItem.title = ""
         self.loginBarButtonItem.enabled = false
       }
-      
       self.tableView.reloadData()
       self.view.hideLoading()
       self.refreshControl?.endRefreshing()

@@ -926,6 +926,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <segue destination="xHS-1Q-y3u" kind="presentation" identifier="ReplySegue" id="JUf-4Y-jFo"/>
+                        <segue destination="OhL-4f-m8X" kind="presentation" identifier="LoginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="9oZ-x1-IUE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFj-Ui-LWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -980,6 +981,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IkD-BG-v6V"/>
-        <segue reference="evU-6e-X3s"/>
+        <segue reference="9oZ-x1-IUE"/>
     </inferredMetricsTieBreakers>
 </document>

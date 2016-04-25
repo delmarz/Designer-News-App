@@ -30,11 +30,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   //MARK:
   //MARK: IBAction
   @IBAction func loginButtonPressed(sender: AnyObject) {
-    self.delegate?.loginWithControllerDidPressed(self)
     DNService.loginWithEmail(emailTextField.text!, password: passwordTextField.text!) { (token) in
       if let token = token {
         LocalStore.saveToken(token)
         self.dismissViewControllerAnimated(true, completion: nil)
+        self.delegate?.loginWithControllerDidPressed(self)
         print("this is token " + token)
       } else {
         self.dialogView.animation = "shake"

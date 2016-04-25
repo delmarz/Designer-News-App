@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol CommentTableViewCellDelegate: class {
+  func commentTableViewCellDidPressUpvote(cell: CommentTableViewCell)
+  func commentTableViewCellDidPressedComment(cell: CommentTableViewCell)
+}
+
 class CommentTableViewCell: UITableViewCell {
 
-  
+  weak var delegate: CommentTableViewCellDelegate?
   @IBOutlet weak var authorLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var upvoteButton: SpringButton!
@@ -19,9 +24,11 @@ class CommentTableViewCell: UITableViewCell {
   @IBOutlet weak var avatarImageView: AsyncImageView!
   
   @IBAction func upvoteButtonDidPressed(sender: AnyObject) {
+    delegate?.commentTableViewCellDidPressUpvote(self)
   }
   
   @IBAction func replyButtonDidPressed(sender: AnyObject) {
+    delegate?.commentTableViewCellDidPressedComment(self)
   }
   
   func configureWithComment(comment: JSON) {
@@ -38,8 +45,17 @@ class CommentTableViewCell: UITableViewCell {
     avatarImageView.placeholderImage = UIImage(named: "content-avatar-default")
     authorLabel.text = userDisplayName + "," + userJob
     timeLabel.text = timeAgoSinceDate(dateFromString(createdAt, format: "yyyy-MM-dd'T'HH:mm:ssZ"), numericDates: true)
-    upvoteButton.setTitle(String(voteCount), forState: UIControlState.Normal)
     //commentTextView.text = body
     commentTextView.attributedText = htmlToAttributedString(bodyHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>")
+    
+    let commentId = comment["id"].int!
+    if LocalStore.isCommentUpvoted(commentId) {
+      upvoteButton.setImage(UIImage(named: "icon-upvote-active"), forState: UIControlState.Normal)
+      upvoteButton.setTitle(String(voteCount+1), forState: UIControlState.Normal)
+    } else {
+      upvoteButton.setImage(UIImage(named: "icon-upvote"), forState: UIControlState.Normal)
+      upvoteButton.setTitle(String(voteCount), forState: UIControlState.Normal)
+    }
+    
   }
 }

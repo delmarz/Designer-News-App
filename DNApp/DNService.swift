@@ -27,10 +27,10 @@ struct DNService {
         case .Login: return "/oauth/token"
         case .Stories: return "/api/v1/stories"
         case .StoryId(let id): return "/api/v1/stories/\(id)"
-        case .StoryUpvote(let id): return "/api/stories/\(id)/upvote"
-        case .StoryReply(let id): return "/api/stories/\(id)/reply"
-        case .CommentUpvote(let id): return "/api/comments/\(id)/upvote"
-        case .CommentReply(let id): return "/api/comments/\(id)/reply"
+        case .StoryUpvote(let id): return "/api/v1/stories/\(id)/upvote"
+        case .StoryReply(let id): return "/api/v1/stories/\(id)/reply"
+        case .CommentUpvote(let id): return "/api/v1/comments/\(id)/upvote"
+        case .CommentReply(let id): return "/api/v1/comments/\(id)/reply"
         }
       }
     }
@@ -77,16 +77,25 @@ struct DNService {
   
   static func upvoteStoryWithId(storyId: Int, token: String, response: (successful: Bool) -> ()) {
     let urlString = baseURL + ResourcePath.StoryUpvote(storyId: storyId).description
+    print("upvote url string \(urlString)")
+    upvoteWithUrlString(urlString, token: token, response: response)
+  }
+  
+  static func upvoteCommentWithId(commentId: Int, token: String, response: (successful: Bool) -> ()) {
+    let urlString = baseURL + ResourcePath.CommentUpvote(commentId: commentId).description
+    upvoteWithUrlString(urlString, token: token, response: response)
+  }
+  
+  private static func upvoteWithUrlString(urlString: String, token: String, response:(successful: Bool) -> ()) {
     let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
     request.HTTPMethod = "POST"
     request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     
-    Alamofire.request(.GET, urlString).responseJSON { (urlResponse) in
-        let statusCode = (urlResponse.response?.statusCode)! == 200
-        response(successful: statusCode)
-      print(response)
+    Alamofire.request(request).responseJSON { (urlResponse) in
+            let successful = urlResponse.response?.statusCode == 200
+            response(successful: successful)
+            print("this is the reponse \(successful)")
     }
-    
   }
   
   
