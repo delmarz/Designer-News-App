@@ -22,6 +22,7 @@ class CommentTableViewCell: UITableViewCell {
   @IBOutlet weak var replyButton: SpringButton!
   @IBOutlet weak var commentTextView: AutoTextView!
   @IBOutlet weak var avatarImageView: AsyncImageView!
+  @IBOutlet weak var avatarLeftConstraint: NSLayoutConstraint!
   
   @IBAction func upvoteButtonDidPressed(sender: AnyObject) {
     delegate?.commentTableViewCellDidPressUpvote(self)

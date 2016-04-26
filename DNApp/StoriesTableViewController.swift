@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate, MenuViewControllerDelegate, LoginViewControllerDelegate{
   
   @IBOutlet weak var loginBarButtonItem: UIBarButtonItem!

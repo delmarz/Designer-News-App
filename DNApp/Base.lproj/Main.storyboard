@@ -511,10 +511,10 @@
             </objects>
             <point key="canvasLocation" x="56" y="2018"/>
         </scene>
-        <!--View Controller-->
+        <!--Reply View Controller-->
         <scene sceneID="nk9-P8-wda">
             <objects>
-                <viewController id="xHS-1Q-y3u" sceneMemberID="viewController">
+                <viewController id="xHS-1Q-y3u" customClass="ReplyViewController" customModule="DNApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NHF-NQ-uYl"/>
                         <viewControllerLayoutGuide type="bottom" id="IG0-b2-DY4"/>
@@ -523,15 +523,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="6-Comment" translatesAutoresizingMaskIntoConstraints="NO" id="gKq-m6-jIg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-mP-Bi8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="X6W-dq-TF5"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.16862745100000001" green="0.38431372549999998" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Reply" id="fee-TL-BRl">
+                                        <barButtonItem key="leftBarButtonItem" image="icon-close" id="Qw1-2Q-FO9">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <segue destination="ngg-75-vXT" kind="unwind" unwindAction="unwindToViewController:" id="meJ-Y9-B2r"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Send" id="Blt-nd-ivz">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="sendBarButtonItemPressed:" destination="xHS-1Q-y3u" id="Obd-Vi-IML"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SXf-6Z-wTw">
+                                <rect key="frame" x="10" y="74" width="300" height="484"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2x9-mP-Bi8" firstAttribute="leading" secondItem="ah5-vR-9hU" secondAttribute="leading" id="5lZ-V0-cGp"/>
+                            <constraint firstItem="IG0-b2-DY4" firstAttribute="top" secondItem="SXf-6Z-wTw" secondAttribute="bottom" constant="10" id="Kna-I4-uYg" customClass="KeyboardLayoutConstraint" customModule="DNApp" customModuleProvider="target"/>
+                            <constraint firstAttribute="trailing" secondItem="2x9-mP-Bi8" secondAttribute="trailing" id="LXy-aE-UAJ"/>
+                            <constraint firstItem="SXf-6Z-wTw" firstAttribute="top" secondItem="2x9-mP-Bi8" secondAttribute="bottom" constant="10" id="ey6-Sk-Mc5"/>
+                            <constraint firstItem="SXf-6Z-wTw" firstAttribute="leading" secondItem="ah5-vR-9hU" secondAttribute="leading" constant="10" id="hMM-ss-Vxz"/>
+                            <constraint firstItem="2x9-mP-Bi8" firstAttribute="top" secondItem="ah5-vR-9hU" secondAttribute="top" id="hWT-xd-h5d"/>
+                            <constraint firstAttribute="trailing" secondItem="SXf-6Z-wTw" secondAttribute="trailing" constant="10" id="rbe-uA-y59"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="replyTextView" destination="SXf-6Z-wTw" id="m4y-jp-p9S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JrV-ib-nzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ngg-75-vXT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1193" y="1174"/>
         </scene>
@@ -890,15 +933,15 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="ooR-Lm-s3G" secondAttribute="bottom" constant="44" id="FT8-lt-tbe"/>
                                         <constraint firstAttribute="trailing" secondItem="k4m-9P-mL3" secondAttribute="trailing" constant="15" id="GES-df-BLG"/>
                                         <constraint firstAttribute="trailing" secondItem="y3p-i1-S4L" secondAttribute="trailing" constant="45" id="IJV-kj-xwi"/>
-                                        <constraint firstItem="k4m-9P-mL3" firstAttribute="leading" secondItem="NdZ-x3-2kU" secondAttribute="leading" constant="35" id="IWG-Hj-cCV"/>
                                         <constraint firstItem="I3s-22-yhI" firstAttribute="top" secondItem="y3p-i1-S4L" secondAttribute="bottom" constant="2" id="NsX-tj-aeB"/>
                                         <constraint firstItem="tD9-0r-pcv" firstAttribute="top" secondItem="NdZ-x3-2kU" secondAttribute="top" constant="8" id="Nv2-ux-Ckc"/>
+                                        <constraint firstItem="I3s-22-yhI" firstAttribute="leading" secondItem="tD9-0r-pcv" secondAttribute="leading" constant="15" id="PWY-f1-51X"/>
                                         <constraint firstItem="k4m-9P-mL3" firstAttribute="top" secondItem="I3s-22-yhI" secondAttribute="bottom" constant="-2" id="aa9-hl-1k8"/>
                                         <constraint firstItem="tD9-0r-pcv" firstAttribute="leading" secondItem="NdZ-x3-2kU" secondAttribute="leading" constant="10" id="b0a-18-wWX"/>
                                         <constraint firstAttribute="bottom" secondItem="k4m-9P-mL3" secondAttribute="bottom" constant="11.5" id="dfE-g5-QMZ"/>
                                         <constraint firstItem="y3p-i1-S4L" firstAttribute="leading" secondItem="tD9-0r-pcv" secondAttribute="trailing" constant="5" id="eWQ-5B-e0b"/>
+                                        <constraint firstItem="k4m-9P-mL3" firstAttribute="leading" secondItem="tD9-0r-pcv" secondAttribute="leading" constant="25" id="gbB-GM-4eJ"/>
                                         <constraint firstItem="ooR-Lm-s3G" firstAttribute="top" secondItem="y3p-i1-S4L" secondAttribute="bottom" constant="2" id="hnl-QZ-Men"/>
-                                        <constraint firstItem="I3s-22-yhI" firstAttribute="leading" secondItem="NdZ-x3-2kU" secondAttribute="leading" constant="25" id="wgd-De-Ezo"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -911,6 +954,7 @@
                                 <connections>
                                     <outlet property="authorLabel" destination="y3p-i1-S4L" id="7g1-M4-bwx"/>
                                     <outlet property="avatarImageView" destination="tD9-0r-pcv" id="QjN-gP-8S8"/>
+                                    <outlet property="avatarLeftConstraint" destination="b0a-18-wWX" id="5w1-ku-s1O"/>
                                     <outlet property="commentTextView" destination="k4m-9P-mL3" id="4eM-O8-91Y"/>
                                     <outlet property="replyButton" destination="ooR-Lm-s3G" id="pUW-0J-iQV"/>
                                     <outlet property="timeLabel" destination="WUZ-XF-J8Z" id="2vb-a0-e3G"/>
@@ -924,6 +968,9 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="BdN-4u-OOw">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <segue destination="xHS-1Q-y3u" kind="presentation" identifier="ReplySegue" id="JUf-4Y-jFo"/>
                         <segue destination="OhL-4f-m8X" kind="presentation" identifier="LoginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="9oZ-x1-IUE"/>
@@ -959,7 +1006,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="6-Comment" width="320" height="568"/>
         <image name="action-share" width="19" height="27"/>
         <image name="bg-credits" width="280" height="140"/>
         <image name="big-credits" width="47" height="44"/>

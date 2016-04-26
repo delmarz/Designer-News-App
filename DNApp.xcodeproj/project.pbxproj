@@ -13,6 +13,7 @@
 		128716971CB035B300C90D19 /* StoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128716961CB035B300C90D19 /* StoriesTableViewController.swift */; };
 		7218B46D1CC61E1300EECCDF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722D8F751CC4AD6500F5CBCA /* Alamofire.framework */; };
 		7218B46E1CC61E1300EECCDF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 722D8F751CC4AD6500F5CBCA /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7222DA831CCDF58D00D691D6 /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7222DA821CCDF58C00D691D6 /* ReplyViewController.swift */; };
 		722D8F8C1CC4B92700F5CBCA /* DNService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8F8B1CC4B92700F5CBCA /* DNService.swift */; };
 		7286B90F1CABAB5E001B9037 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286B90E1CABAB5E001B9037 /* AppDelegate.swift */; };
 		7286B9141CABAB5E001B9037 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7286B9121CABAB5E001B9037 /* Main.storyboard */; };
@@ -138,6 +139,7 @@
 		12199BF71CB0FF65006E0B0E /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		12199BF91CB11809006E0B0E /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		128716961CB035B300C90D19 /* StoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
+		7222DA821CCDF58C00D691D6 /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		722D8F6A1CC4AD6400F5CBCA /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		722D8F8B1CC4B92700F5CBCA /* DNService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNService.swift; sourceTree = "<group>"; };
 		7286B90B1CABAB57001B9037 /* DNApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +241,7 @@
 				12199BF71CB0FF65006E0B0E /* WebViewController.swift */,
 				72D061F21CBC9CF5006B40E3 /* CommentsTableViewController.swift */,
 				72D062021CBCCFD7006B40E3 /* CommentTableViewCell.swift */,
+				7222DA821CCDF58C00D691D6 /* ReplyViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72D061F31CBC9CF5006B40E3 /* CommentsTableViewController.swift in Sources */,
+				7222DA831CCDF58D00D691D6 /* ReplyViewController.swift in Sources */,
 				72BC36401CC0BC0800EF5AA5 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				7286B98B1CABB923001B9037 /* SpringLabel.swift in Sources */,
 				12199BFA1CB11809006E0B0E /* StoryTableViewCell.swift in Sources */,
