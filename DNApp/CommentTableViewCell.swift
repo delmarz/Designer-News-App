@@ -24,11 +24,18 @@ class CommentTableViewCell: UITableViewCell {
   @IBOutlet weak var avatarImageView: AsyncImageView!
   @IBOutlet weak var avatarLeftConstraint: NSLayoutConstraint!
   
+    @IBOutlet weak var indentView: UIView!
   @IBAction func upvoteButtonDidPressed(sender: AnyObject) {
+    upvoteButton.animation = "pop"
+    upvoteButton.force = 3
+    upvoteButton.animate()
     delegate?.commentTableViewCellDidPressUpvote(self)
   }
   
   @IBAction func replyButtonDidPressed(sender: AnyObject) {
+    replyButton.animation = "pop"
+    replyButton.force = 3
+    replyButton.animate()
     delegate?.commentTableViewCellDidPressedComment(self)
   }
   
@@ -57,6 +64,16 @@ class CommentTableViewCell: UITableViewCell {
       upvoteButton.setImage(UIImage(named: "icon-upvote"), forState: UIControlState.Normal)
       upvoteButton.setTitle(String(voteCount), forState: UIControlState.Normal)
     }
-    
+   
+    let depth = comment["depth"].int! > 4 ? 4 : comment["depth"].int!
+    if depth > 0 {
+        avatarLeftConstraint.constant = CGFloat(depth) * 20 + 25
+        separatorInset = UIEdgeInsets(top: 0, left: CGFloat(depth) * 20 + 15, bottom: 0, right: 0)
+        indentView.hidden = false
+    } else {
+        avatarLeftConstraint.constant = 10
+        separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+        indentView.hidden = true
+    }
   }
 }
