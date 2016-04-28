@@ -25,6 +25,7 @@ class StoryTableViewCell: UITableViewCell {
   @IBOutlet weak var avatarImageView: AsyncImageView!
   
   @IBAction func upVoteButtonPressed(sender: AnyObject) {
+    SoundPlayer.play("upvote.wav")
     upVoteButton.animation = "pop"
     upVoteButton.force = 3
     upVoteButton.animate()

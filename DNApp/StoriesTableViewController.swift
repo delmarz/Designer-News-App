@@ -36,6 +36,12 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     tableView.estimatedRowHeight = 100
     tableView.rowHeight = UITableViewAutomaticDimension
     loadStories("", page: 1)
+
+    let barButtonItem = UIBarButtonItem(title: "Top Stories", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+    barButtonItem.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Next", size: 18)!], forState: UIControlState.Normal)
+    navigationItem.backBarButtonItem = barButtonItem
+    
+    loginBarButtonItem.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Next", size: 18)!], forState: UIControlState.Normal)
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -49,6 +55,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
   //MARK:
   //MARK: Refresh Stories
   func refreshStories() {
+    SoundPlayer.play("refresh.wav")
     loadStories(section, page: 1)
   }
   
@@ -168,9 +175,9 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
     if segue.identifier == "WebSegue" {
       let toView = segue.destinationViewController as! WebViewController
       let indexPath = sender as! NSIndexPath
-      let url = stories[indexPath.row]["url"].string!//data[indexPath.row]["url"].string!
+      let story = stories[indexPath.row]//["url"].string!  //data[indexPath.row]["url"].string!
       toView.transitioningDelegate = transitionManager
-      toView.url = url
+      toView.story = story
     }
     
     if segue.identifier == "MenuSegue" {

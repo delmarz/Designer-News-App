@@ -26,6 +26,7 @@ class CommentTableViewCell: UITableViewCell {
   
     @IBOutlet weak var indentView: UIView!
   @IBAction func upvoteButtonDidPressed(sender: AnyObject) {
+    SoundPlayer.play("upvote.wav")
     upvoteButton.animation = "pop"
     upvoteButton.force = 3
     upvoteButton.animate()

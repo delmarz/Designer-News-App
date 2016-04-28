@@ -12,12 +12,13 @@ class WebViewController: UIViewController, UIWebViewDelegate {
 
   @IBOutlet weak var progressView: UIProgressView!
   @IBOutlet weak var webView: UIWebView!
-  var url: String!
   var hasFinishedLoading = false
+  var story: JSON!
   //MARK:
   //MARK: View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+      let url = story["url"].string ?? ""
       let targetURL = NSURL(string: url)
       let request = NSURLRequest(URL: targetURL!)
       webView.loadRequest(request)
@@ -28,10 +29,20 @@ class WebViewController: UIViewController, UIWebViewDelegate {
   
   //MARK:
   //MARK: IBACtion
-    @IBAction func closeButtonPressed(sender: AnyObject) {
+  @IBAction func closeButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
         UIApplication.sharedApplication().statusBarHidden = false
     }
+  
+  @IBAction func shareButtonPressed(sender: AnyObject) {
+    let title = story["title"].string ?? ""
+    let url = story["url"].string ?? ""
+    let actionViewController = UIActivityViewController(activityItems: [title, url], applicationActivities: nil)
+    actionViewController.setValue(title, forKey: "subject")
+    actionViewController.excludedActivityTypes = [UIActivityTypeAirDrop]
+    presentViewController(actionViewController, animated: true, completion: nil)
+  }
+  
   
   //MARK:
   //MARK: WebView Delegate

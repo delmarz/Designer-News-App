@@ -59,6 +59,8 @@
 		72D062031CBCCFD7006B40E3 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D062021CBCCFD7006B40E3 /* CommentTableViewCell.swift */; };
 		72D327DE1CC8B15C0098CB73 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D327DD1CC8B15C0098CB73 /* LocalStore.swift */; };
 		72E536ED1CAE3E6B00801A9F /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E536EC1CAE3E6B00801A9F /* LearnViewController.swift */; };
+		72EE83AE1CD1BAAE00EAE513 /* refresh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 72EE83AC1CD1BAAE00EAE513 /* refresh.wav */; };
+		72EE83AF1CD1BAAE00EAE513 /* upvote.wav in Resources */ = {isa = PBXBuildFile; fileRef = 72EE83AD1CD1BAAE00EAE513 /* upvote.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +195,8 @@
 		72D062021CBCCFD7006B40E3 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		72D327DD1CC8B15C0098CB73 /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		72E536EC1CAE3E6B00801A9F /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
+		72EE83AC1CD1BAAE00EAE513 /* refresh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = refresh.wav; sourceTree = "<group>"; };
+		72EE83AD1CD1BAAE00EAE513 /* upvote.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = upvote.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +253,7 @@
 		7246C0E11CC74BB60023EBB5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				72EE83A51CD1BA8F00EAE513 /* Sounds */,
 				7286B9151CABAB5E001B9037 /* Assets.xcassets */,
 				7286B9171CABAB5E001B9037 /* LaunchScreen.storyboard */,
 				7286B91A1CABAB5E001B9037 /* Info.plist */,
@@ -339,6 +344,15 @@
 				72BC363E1CC0BC0800EF5AA5 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		72EE83A51CD1BA8F00EAE513 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				72EE83AC1CD1BAAE00EAE513 /* refresh.wav */,
+				72EE83AD1CD1BAAE00EAE513 /* upvote.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,6 +477,8 @@
 				7286B9191CABAB5E001B9037 /* LaunchScreen.storyboard in Resources */,
 				7286B9161CABAB5E001B9037 /* Assets.xcassets in Resources */,
 				7286B9141CABAB5E001B9037 /* Main.storyboard in Resources */,
+				72EE83AE1CD1BAAE00EAE513 /* refresh.wav in Resources */,
+				72EE83AF1CD1BAAE00EAE513 /* upvote.wav in Resources */,
 				7286B9841CABB923001B9037 /* LoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
